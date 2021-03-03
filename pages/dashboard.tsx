@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
-import Head from 'next/head';
-
-import { useQuery } from '@apollo/client';
-
-import { GET_RATES } from '../network/graphQl/queries';
+import React, { useEffect } from "react";
+import Head from "next/head";
+import { useHelloQuery } from "../network/graphQl/interfaces/types";
 
 const Dashboard = (): JSX.Element => {
+  const { data, loading, error } = useHelloQuery();
 
-  const { data, loading, error } = useQuery(GET_RATES);
-
+  useEffect(() => {
+    console.log(data);
+  }, [loading]);
   return (
     <>
       <Head>
@@ -20,7 +19,7 @@ const Dashboard = (): JSX.Element => {
         {!loading && JSON.stringify(data)}
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Dashboard;

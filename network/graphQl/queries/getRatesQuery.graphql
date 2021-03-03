@@ -1,5 +1,0 @@
-query GetRates {
-  rates(currency: "USD") {
-    currency
-  }
-}
