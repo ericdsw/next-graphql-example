@@ -1,1 +1,0 @@
-export { default as GET_RATES } from './getRatesQuery.graphql';
