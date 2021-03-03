@@ -4,6 +4,14 @@ import { AppProps } from 'next/app';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
+import { ApolloProvider } from '@apollo/client';
+
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+// Apollo Connection
+import client from '../network/client';
+
+// Theme customization
 import createTheme from '../styles/createTheme';
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
@@ -18,13 +26,20 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
 
   return (
     <React.Fragment>
-      <Head>
-        <title>My Page Title</title>
-      </Head>
-      <ThemeProvider theme={createTheme()}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <ApolloProvider client={client}>
+        <Head>
+          <title>My Page Title</title>
+          <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          />
+        </Head>
+        <ThemeProvider theme={createTheme()}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </ApolloProvider>
     </React.Fragment>
   );
 }
