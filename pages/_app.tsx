@@ -5,14 +5,10 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { ApolloProvider } from '@apollo/client';
+import client from '@graph/client';
+import createTheme from '../styles/createTheme';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
-
-// Apollo Connection
-import client from '../network/client';
-
-// Theme customization
-import createTheme from '../styles/createTheme';
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
 

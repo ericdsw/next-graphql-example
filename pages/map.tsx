@@ -2,7 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
-const DynamicPreviewMap = dynamic(() => import('../components/PreviewMap'), {
+const DynamicPreviewMap = dynamic(() => import('../src/components/PreviewMap'), {
   ssr: false
 });
 

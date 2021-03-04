@@ -4,7 +4,7 @@ import ReactMapGL from 'react-map-gl';
 import MapMarker from './MapMarker'
 import { PreviewMapMarker } from './components';
 
-type MapProps = {
+export type PreviewMapProps = {
   startingLatitude?: number;
   startingLongitude?: number;
   startingZoom?: number;
@@ -28,11 +28,11 @@ const PreviewMap = ({
   height = 300,
   markers = [],
   drawStatic = false
-}: MapProps): JSX.Element => {
+}: PreviewMapProps): JSX.Element => {
 
   const markerElements = useMemo(
     () => markers.map(
-      (marker): React.ReactElement => <PreviewMapMarker data={marker} />
+      (marker): React.ReactElement => <PreviewMapMarker key={marker.title} data={marker} />
     ),
     [markers]
   );

@@ -16,7 +16,13 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "jsx": "preserve",
-    "isolatedModules": true
+    "isolatedModules": true,
+    "baseUrl": "src",
+    "paths": {
+      "@mocks/*": ["__mocks__/*"],
+      "@graph/*": ["graphQl/*"],
+      "@components/*": ["components/*"],
+    }
   },
   "include": [
     "next-env.d.ts",
